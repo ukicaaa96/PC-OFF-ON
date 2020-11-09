@@ -1,0 +1,36 @@
+Klijent.py
+
+Na klijentu se pokrece aplikacija koja pri pokretanju pokusava da posalje podatke 
+sve dok server ne odgovori sa OK, zatim se osluskuje socket i ocekuje se da server 
+posalje komandu OFF ili CHECK (CHECK komanda sluzi da se proveri stanje racuara, da li je ukljucen
+ili iskljucen, dok OFF komanda iskljucuje racunar).
+
+ServerExcel.py
+
+ServerExcel prima podatke od klijenta i smesta ih u tabelu u excel-u, smesta podatke 
+u prvo prazno polje tj "NONE", takodje proverava da li vec postoji taj racunar, zatim 
+azurira tu tabelu i ocekuje sledece podatke od narednog klijenta. Poslednji broj IP-a
+za sad necemo koristii jer trenutno nije potreban(mozda se kasnije iskoristi za sortiranje 
+racunara od najmanjeg broja do najveceg, ukoliko su u racunarskom centru 6 tako rasporedjene IP
+adrese, pored toga, tu se nalazi i MAC adresa na koju saljemo "magic packet" tj ukljucujemo racuanar
+
+Server.py
+
+Ovaj GUI Server koji automatski pokrece ServerExcel.py, Server.py ocitava podatke iz excel-a i tako
+pravi Button-e, posto postoji mogucnost da posle pokretanja GUI-a ServerExcel.py doda jos neke podatke u excel-u,
+kao resenje je refresh button koji se nalazi na glavnom racunaru, kada se klikne na glavni racunar u GUI-u, 
+on ponovo kreira svako drugme ali sada sa novom, azuriranom, excel tabelom. U Server.py postoji jedna stranica koja je aktivna i koja pri pokretanju
+kreira button-e i automatski proverava stanje svakog racunara kada sve to uradi iskljuceni racunari ce imati crvenu ikonicu, dok ce ukljuceni
+imati zelenu, kada kliknemo na bilo koji racunar ukoliko je zelen poslace komandu za gasenje(OFF), a ukoliko je crven poslace poruku za ukljucenje(send_magic_packet)
+
+U KLIJENTU JE POTREBNO PODESITI IP ADRESU SERVERA!!!
+
+U req.txt se nalaze potrebni paketi za ovu aplikaciju, instalira se klikom na installRequirements.py
+
+_________________________________________________________________________________________________
+
+Za aplikaciju je planirano da se doda:
+
+-Admin panel, tj prozor za login da bi se pristupilo aplikaciji
+-Finalnu verziju pretvoriti u exe fajl
+
