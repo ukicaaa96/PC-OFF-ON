@@ -34,3 +34,5 @@ Za aplikaciju je planirano da se doda:
 -Admin panel, tj prozor za login da bi se pristupilo aplikaciji
 -Finalnu verziju pretvoriti u exe fajl
 
+....
+
